@@ -9,7 +9,7 @@ pipeline {
          steps {
             script {
                gv = load "script.groovy"
-               echo 'loading'
+               echo 'loading now'
             }
          }
       }
