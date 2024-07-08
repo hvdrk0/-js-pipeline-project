@@ -4,13 +4,23 @@ pipeline {
         stage("build") {
             when {
                 expression {
-                    env.GIT_BRANCH == 'origin/master'
+                    env.GIT_BRANCH == 'origin/main'
                 }
             }
             steps {
-                echo 'building the application...'
+                echo 'building the application...(main)'
             }
         }
+	stage("build2") {
+	    when {
+		expression {
+		    env.GIT_BRANCH == 'origin/test'
+		}
+	    }
+	    steps {
+		echo 'building the application...(test)'
+	    }
+	}
         stage("test") {
             when {
                 expression {
